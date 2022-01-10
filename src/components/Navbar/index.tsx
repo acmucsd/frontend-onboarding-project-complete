@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './style.less';
 
 interface NavbarProps {
-  loggedIn: boolean
+  loggedIn: boolean;
 }
 
 const Navbar: React.FC<NavbarProps> = ({ loggedIn }) => (

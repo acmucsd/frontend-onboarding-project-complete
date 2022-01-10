@@ -1,7 +1,7 @@
 import React from 'react';
 
-const NotFound = () => <p>
-	This page doesn't exist!
-</p>
+function NotFound() {
+  return <p>This page doesn't exist!</p>;
+}
 
-export default NotFound
+export default NotFound;
