@@ -1,18 +1,21 @@
-import React from 'react'
-import "./style.less"
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './style.less';
 
 interface NavbarProps {
-	loggedIn: boolean
+  loggedIn: boolean
 }
 
 const Navbar: React.FC<NavbarProps> = ({ loggedIn }) => (
-	<div className='navbar'>
-		<a href="home">home</a>
-		{!loggedIn && <a href="home">home</a>}
-		{loggedIn && <a href="orders">your orders</a>}
-		{!loggedIn && <a href="home">login</a>}
-		{loggedIn && <a href="orders">logout</a>}
-	</div>
-)
+  <div className="navbar">
+    <span className="navbar-logo">ACM Store</span>
+
+    <div className="navbar-links">
+      <a href="/">home</a>
+      {!loggedIn && <Link to="/login">login</Link>}
+      {loggedIn && <Link to="/logout">logout</Link>}
+    </div>
+  </div>
+);
 
 export default Navbar;
