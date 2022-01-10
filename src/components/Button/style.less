@@ -11,12 +11,17 @@
 	transition: background 0.8s;
 }
 
-.button:hover {
+.enabled:hover {
 	background: gray radial-gradient(circle, transparent 1%, gray 1%) center/15000%;
 	color: white;
 }
-.button:active {
+.enabled:active {
 	background-color: #b2b9bf;
 	background-size: 100%;
 	transition: background 0s;
+}
+.disabled {
+	/* no idea why it's complaining here*/
+	/* stylelint-disable-next-line CssSyntaxError */
+	cursor: no-drop;
 }

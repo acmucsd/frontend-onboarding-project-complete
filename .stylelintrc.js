@@ -7,6 +7,6 @@ module.exports = {
     'order/properties-alphabetical-order': true,
     'color-function-notation': 'legacy',
     'font-weight-notation': 'numeric',
-    'selector-class-pattern': '^([a-zA-z][a-zA-z0-9]*)([\-\_]+[a-zA-z0-9]+)*$'
+    'selector-class-pattern': '^([a-zA-z][a-zA-z0-9]*)([\-\_]+[a-zA-z0-9]+)*$',
   },
 };

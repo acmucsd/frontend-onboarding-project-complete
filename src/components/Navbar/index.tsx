@@ -1,21 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { GlobalContext } from '../../contexts/GlobalContext';
+import { pathLinks } from '../../pathLinks';
 import './style.less';
 
-interface NavbarProps {
-  loggedIn: boolean;
-}
+const Navbar: React.FC = () => {
+  const { loggedIn } = useContext(GlobalContext);
+  return (
+    <div className="navbar">
+      <span className="navbar-logo">ACM Store</span>
 
-const Navbar: React.FC<NavbarProps> = ({ loggedIn }) => (
-  <div className="navbar">
-    <span className="navbar-logo">ACM Store</span>
-
-    <div className="navbar-links">
-      <a href="/">home</a>
-      {!loggedIn && <Link to="/login">login</Link>}
-      {loggedIn && <Link to="/logout">logout</Link>}
+      <div className="navbar-links">
+        <a href="/">home</a>
+        {!loggedIn && <Link to={pathLinks.login}>login</Link>}
+        {loggedIn && <Link to="/logout">logout</Link>}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Navbar;

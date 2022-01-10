@@ -39,10 +39,10 @@ const items = [
 const Home: React.FC = () => {
   return (
     <>
-      <Navbar loggedIn />
+      <Navbar />
       <div className="items">
         {items.map((item) => (
-          <ItemCard key={item.uuid} {...item} />
+          <ItemCard key={item.uuid} name={item.name} price={item.price} description={item.description} />
         ))}
       </div>
     </>
