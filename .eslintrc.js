@@ -1,8 +1,7 @@
 module.exports = {
   extends: [
-    'airbnb',
     'airbnb-typescript',
-    'prettier',
+    'prettier/@typescript-eslint',
     'plugin:prettier/recommended',
   ],
   parserOptions: {
@@ -16,21 +15,15 @@ module.exports = {
     node: true,
   },
   rules: {
+    'react/prop-types': 'off',
+    'react/jsx-one-expression-per-line': 'off',
+    'react-hooks/exhaustive-deps': 'off',
+    'no-async-promise-executor': ['off'],
+    'jsx-a11y/click-events-have-key-events': ['off'],
     'jsx-a11y/href-no-hash': ['off'],
+    'jsx-a11y/label-has-associated-control': ['off'],
+    'jsx-a11y/no-static-element-interactions': ['off'],
     'react/jsx-filename-extension': ['warn', { extensions: ['.ts', '.tsx'] }],
-    'max-len': [
-      'warn',
-      {
-        code: 120,
-        tabWidth: 2,
-        comments: 120,
-        ignoreComments: false,
-        ignoreTrailingComments: true,
-        ignoreUrls: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true,
-        ignoreRegExpLiterals: true,
-      },
-    ],
+    'react/no-array-index-key': 'off'
   },
 };

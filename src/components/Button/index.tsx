@@ -6,15 +6,19 @@ interface ButtonProps {
   onClick: Function;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, onClick }) => (
-  <div
-    className="button"
-    onClick={() => {
-      onClick();
-    }}
-  >
-    {text}
-  </div>
-);
+const Button: React.FC<ButtonProps> = (props) => {
+  const { text, onClick } = props;
+  return (
+    <button
+      className="button"
+      type="button"
+      onClick={() => {
+        onClick();
+      }}
+    >
+      {text}
+    </button>
+  );
+};
 
 export default Button;
