@@ -20,6 +20,7 @@ const Home: React.FC = () => {
         {items.map((item) => (
           <ItemCard key={item.uuid} name={item.name} price={item.price} description={item.description} uuid={item.uuid} />
         ))}
+        {items.length === 0 && <p>No items in the store yet :( </p>}
       </div>
     </>
   );
