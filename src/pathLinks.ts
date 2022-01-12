@@ -3,4 +3,5 @@ export const pathLinks = {
   login: '/login',
   createAccount: '/create-account',
   orders: '/orders',
+  createItem: '/create-item',
 };

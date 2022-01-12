@@ -1,48 +1,24 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { getItems, Item } from '../../api';
 import ItemCard from '../../components/ItemCard';
 import Navbar from '../../components/Navbar';
+import { GlobalContext } from '../../contexts/GlobalContext';
 import './style.less';
 
-const items = [
-  {
-    name: 'TShirt',
-    uuid: 'slkdfjds-32492-dsf-132',
-    price: 3.4,
-    description: 'like its a tshirt. what description do you need?',
-  },
-  {
-    name: 'TShirt',
-    uuid: 'slkdfjds-32492-dsf-132',
-    price: 3.4,
-    description: 'like its a tshirt. what description do you need?',
-  },
-  {
-    name: 'TShirt',
-    uuid: 'slkdfjds-32492-dsf-132',
-    price: 3.4,
-    description: 'like its a tshirt. what description do you need?',
-  },
-  {
-    name: 'TShirt',
-    uuid: 'slkdfjds-32492-dsf-132',
-    price: 3.4,
-    description: 'like its a tshirt. what description do you need?',
-  },
-  {
-    name: 'TShirt',
-    uuid: 'slkdfjds-32492-dsf-132',
-    price: 3.4,
-    description: 'like its a tshirt. what description do you need?',
-  },
-];
-
 const Home: React.FC = () => {
+  const [items, setItems] = useState<Item[]>([]);
+  const { apiUrl } = useContext(GlobalContext);
+
+  useEffect(() => {
+    getItems(apiUrl).then((data) => setItems(data));
+  }, []);
+
   return (
     <>
-      <Navbar />
+      <Navbar title="Store Lite" />
       <div className="items">
         {items.map((item) => (
-          <ItemCard key={item.uuid} name={item.name} price={item.price} description={item.description} />
+          <ItemCard key={item.uuid} name={item.name} price={item.price} description={item.description} uuid={item.uuid} />
         ))}
       </div>
     </>

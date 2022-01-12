@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { GlobalContext } from './contexts/GlobalContext';
+import { GlobalContext, GlobalProvider } from './contexts/GlobalContext';
 
 import './index.css';
 import Paths from './Paths';
 
 ReactDOM.render(
   <React.StrictMode>
-    <GlobalContext.Provider value={{ loggedIn: false }}>
+    <GlobalProvider>
       <Paths />
-    </GlobalContext.Provider>
+    </GlobalProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

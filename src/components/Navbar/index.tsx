@@ -4,16 +4,35 @@ import { GlobalContext } from '../../contexts/GlobalContext';
 import { pathLinks } from '../../pathLinks';
 import './style.less';
 
-const Navbar: React.FC = () => {
-  const { loggedIn } = useContext(GlobalContext);
+interface NavbarProps {
+  title: string;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ title }) => {
+  const { loggedIn, logout } = useContext(GlobalContext);
+
   return (
     <div className="navbar">
-      <span className="navbar-logo">ACM Store</span>
+      <span className="navbar-logo">{title}</span>
 
       <div className="navbar-links">
-        <a href="/">home</a>
+        <Link to="/">home</Link>
         {!loggedIn && <Link to={pathLinks.login}>login</Link>}
-        {loggedIn && <Link to="/logout">logout</Link>}
+        {loggedIn && <Link to={pathLinks.createItem}>create item</Link>}
+        {loggedIn && <Link to={pathLinks.orders}>your orders</Link>}
+        {loggedIn && (
+          // I'm lazy here oop
+          // eslint-disable-next-line jsx-a11y/anchor-is-valid
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              logout();
+            }}
+          >
+            logout
+          </a>
+        )}
       </div>
     </div>
   );
